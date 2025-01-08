@@ -15,16 +15,34 @@ class RemovablePartAggregator
 
     public function getActivitiesToRemove(): array
     {
-        return [];
+        $activities = [];
+
+        foreach ($this->entities as $entity) {
+            $activities[] = $entity->getActivities();
+        }
+
+        return $activities;
     }
 
     public function getImagesToRemove(): array
     {
-        return [];
+        $images = [];
+
+        foreach ($this->entities as $entity) {
+            $images[] = $entity->getImages();
+        }
+
+        return $images;
     }
 
     public function getTranslationsToRemove(): array
     {
-        return [];
+        $translations = [];
+
+        foreach ($this->entities as $entity) {
+            $translations[] = $entity->getTranslations();
+        }
+
+        return $translations;
     }
 }
